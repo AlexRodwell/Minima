@@ -1,0 +1,22 @@
+@import 'partial/mixin';
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+
+    @include theme(light) {
+        background-color: white;
+    }
+
+    @include theme(dark) {
+        background-color: black;
+    }
+}
+
+* {
+    box-sizing: border-box;
+}

@@ -1,0 +1,15 @@
+@mixin theme($theme) {
+    @if $theme == dark {
+        @media only screen and (prefers-color-scheme: dark) {
+            @content;
+        }
+    }
+    @else if $theme == light {
+        @media only screen and (prefers-color-scheme: no-preference), (prefers-color-scheme: light) {
+            @content;
+        }
+    }
+    @else {
+        @error 'Theme \'#{$theme}\' is invalid or not defined';
+    }
+}

@@ -1,0 +1,21 @@
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+@media only screen and (prefers-color-scheme: no-preference), (prefers-color-scheme: light) {
+  body {
+    background-color: white;
+  }
+}
+@media only screen and (prefers-color-scheme: dark) {
+  body {
+    background-color: black;
+  }
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
