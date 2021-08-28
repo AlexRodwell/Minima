@@ -13,3 +13,30 @@
         @error 'Theme \'#{$theme}\' is invalid or not defined';
     }
 }
+
+@mixin grid($gap) {
+    display: grid;
+    grid-gap: $gap;
+    gap: $gap;
+}
+
+@mixin flex($direction, $justify, $align, $gap: property(gap)) {
+    display: flex;
+    flex-shrink: 0;
+
+    @if $direction {
+        flex-direction: $direction;
+    }
+
+    @if $justify {
+        justify-content: $justify;
+    }
+
+    @if $align {
+        align-items: $align;
+    }
+
+    @if $gap {
+        gap: $gap;
+    }
+}
