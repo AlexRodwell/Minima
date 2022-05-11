@@ -1,0 +1,20 @@
+:root {
+    accent-color: color(primary);
+}
+
+:focus-visible {
+    outline-color: color(primary);
+}
+
+::selection {
+    background-color: color(primary);
+    color: color(white);
+}
+
+::marker,
+::-webkit-calendar-picker-indicator,
+::-webkit-clear-button,
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+    color: color(primary);
+}

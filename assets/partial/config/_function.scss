@@ -1,0 +1,66 @@
+@function color($key, $hex: false) {
+
+    @if map-has-key($colors, $key) {
+
+        @if $hex {
+            @return map-get($colors, $key);
+        }
+        @else {
+            @return var(unquote('--color-' + $key), map-get($colors, $key));
+        }
+    }
+
+    @warn "Unknown `#{$key}` in $colors.";
+    @return null;
+}
+
+@function property($name, $var: true) {
+    
+    @if map-has-key($property, $name) {
+
+        $raw: map-get($property, $name);
+
+        @if $var {
+            @return var(unquote('--property-' + $name), $raw);
+        }
+        @else {
+            @return $raw;
+        }
+    }
+    @else {
+        @error 'Variable \'#{$name}\' does not exist. If you\'re using either colour or font variables, please use either color(name) or font(name)';
+    }
+}
+
+@function font_fallback($value) {
+
+    $optimal: map-get(map-get($fonts, $value), optimal);
+    $fallback: map-get(map-get($fonts, $value), fallback);
+    $type: map-get(map-get($fonts, $value), type);
+
+    @return join($optimal, $fallback), unquote($type);
+}
+
+@function font($value) {
+
+    @if map-has-key($fonts, $value) {
+        // Return variable and last item of fallback array, which should be a generic family name: https://developer.mozilla.org/en-US/docs/Web/CSS/font-family#syntax
+        @return var(#{'--font-' + $value}, font_fallback($value));
+    }
+    @else {
+        @error 'Font type \'#{$type}\' doesn\'t exist';
+    }
+}
+
+// https://gist.github.com/certainlyakey/e9c0d8f5c87ff47e3d5b#gistcomment-3458258
+@function encode_color($string) {
+
+    @if type-of($string) == 'color' and str-index(#{$string}, '#') == 1 {
+        $hex: str-slice(ie-hex-str($string), 4);
+        $string: unquote('#{$hex}');
+
+        @return '%23' + $string;
+    }
+    
+    @return $string;
+}

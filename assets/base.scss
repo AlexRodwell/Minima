@@ -1,74 +1,26 @@
-// Theme name
-$name: 'minima';
-
-// Set the suffix of specific types
-$theme: (
-    properties: '--' + $name + '-property',
-    colors: '--' + $name + '-color'
-);
-
-$breakpoints: (
-    xs: 499px,
-    sm: 500px,
-    md: 700px,
-    lg: 900px,
-    xl: 1200px,
-    xxl: 1280px
-);
-
-$colors: (
-	grey-000: #1E2227,
-	grey-100: #272D33,
-	grey-200: #363A42,
-	grey-300: #7F8091,
-	grey-400: #AAB2C7,
-	white: #FFFFFF,
-	black: #000000,
-    teal: #30C8C9
-);
-
-$properties: (
-	nav: 4.5rem,
-    container: nth(map-values($breakpoints), -1),
-    gap: 1rem,
-    gap-half: 0.5rem,
-    radius: 4px
-);
-
-:root {
-    // Properties
-    @each $key, $value in $properties {
-        #{map-get($theme, properties) + '--' + $key}: #{$value};
-    }
-
-    // Colors
-    @each $key, $value in $colors {
-        #{map-get($theme, colors) + '--' + $key}: $value;
-    }
-}
-
-@import 'partial/normalize';
-@import 'partial/mixin';
-@import 'partial/function';
+@import 'partial/config';
 
 html {
-    font-size: 16px;
     scroll-behavior: smooth;
     overflow-x: hidden;
+    font-size: 16px;
+    font-size: clamp(16px, 0.75rem + 1vw, 20px); // Scales between 400-800px https://clamp.font-size.app/
+    scrollbar-width: thin;
+    scrollbar-color: color(primary) color(background);
+    scroll-padding-top: property(spacer-xl);
+    scrollbar-gutter: stable;
+    font-family: font(body);
 }
 
 body {
+    margin: unset;
     line-height: 1.4;
-    font-family: 'GT Walsheim Pro', sans-serif;
+    background: color(background);
+    color: color(body);
 
-    @include theme(light) {
-        background-color: white;
-        color: black;
-    }
-
-    @include theme(dark) {
-        background-color: #201e20;
-        color: white;
+    &.lock {
+        overflow: hidden;
+        position: fixed;
     }
 }
 
@@ -76,18 +28,33 @@ body {
     box-sizing: border-box;
 }
 
-img {
-    width: 100%;
-    image-rendering: auto; // https://twitter.com/Insharamin/status/1399231175013531656
+[hidden] {
+    @include hidden;
 }
 
-picture {
-    display: flex;
+// https://codepen.io/5t3ph/pen/KKmdZOK?editors=1100
+
+.container {
+    @include container;
+
+    @include breakpoint-down(md) {
+        @include padding-inline(property(container-padding));
+    }
 }
 
-svg {
-    fill: currentColor;
+@import 'partial/core/media';
+@import 'partial/core/pseudo';
+@import 'partial/core/typography';
+@import 'partial/core/input';
+@import 'partial/core/button';
+@import 'partial/core/article';
+
+.icon {
+    width: clamp(1.25rem, 2vw, 1.75rem);
+
+    &--large {
+        width: clamp(1.5rem, 3vw, 3vw);
+    }
 }
 
-@import 'partial/typography';
-@import 'partial/components';
+@import 'partial/demo';

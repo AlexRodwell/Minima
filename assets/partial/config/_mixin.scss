@@ -1,0 +1,204 @@
+@mixin theme($scheme) {
+
+    @if $scheme == dark {
+        @media only screen and (prefers-color-scheme: dark) {
+            @content;
+        }
+    }
+    @else if $scheme == light {
+        @media only screen and (prefers-color-scheme: no-preference), (prefers-color-scheme: light) {
+            @content;
+        }
+    }
+    @else {
+        @error 'Theme \'#{$scheme}\' is invalid or not defined';
+    }
+}
+
+@mixin grid($gap: property(spacer-md), $columns: false, $rows: false) {
+    display: grid;
+    
+    @if $gap {
+        grid-gap: $gap;
+        gap: $gap;
+    }
+
+    @if $columns {
+        grid-template-columns: $columns;
+    }
+
+    @if $rows {
+        grid-template-columns: $rows;
+    }
+}
+
+@mixin gap($gap) {
+    grid-gap: $gap;
+    gap: $gap;
+}
+
+@mixin flex($direction: row, $justify: center, $align: center, $gap: property(spacer-md)) {
+    display: flex;
+    flex-shrink: 0;
+
+    @if $direction {
+        flex-direction: $direction;
+    }
+
+    @if $justify {
+        justify-content: $justify;
+    }
+
+    @if $align {
+        align-items: $align;
+    }
+
+    @if $gap {
+        gap: $gap;
+    }
+}
+
+// Clone of bootstraps breakpoints: https://getbootstrap.com/docs/5.0/layout/breakpoints/
+@mixin breakpoint-up($width) {
+
+    // Check if breakpoint exists
+    @if map-has-key($breakpoints, $width) {
+        @if $width != xs {
+            @media only screen and (min-width: #{map-get($breakpoints, $width)}) {
+                @content;
+            }
+        }
+    }
+    @else {
+        @error "Property '#{$width}' is not defined in $breakpoints array";
+    }
+}
+
+@mixin breakpoint-down($width) {
+
+    // Check if breakpoint exists
+    @if map-has-key($breakpoints, $width) {
+        @if $width != xs {
+            @media only screen and (max-width: #{map-get($breakpoints, $width) - 1}) {
+                @content;
+            }
+        }
+    }
+    @else {
+        @error "Property '#{$width}' is not defined in $breakpoints array";
+    }
+}
+
+@mixin breakpoint-only($width) {
+
+    // Check if breakpoint exists
+    @if map-has-key($breakpoints, $width) {
+
+        $total: length($breakpoints);
+        $next: index(map-keys($breakpoints), $width) + 1;
+
+        @if $next == 2 {
+            @media only screen and (max-width: #{map-get($breakpoints, $width)}) {
+                @content;
+            }
+        }
+        @else if $next <= $total and $next > 2 {
+            $value: nth(map-values($breakpoints), $next);
+            @media only screen and (max-width: #{$value}) and (min-width: #{map-get($breakpoints, $width)}) {
+                @content;
+            }
+        }
+        @else if $next > $total {
+            @media only screen and (min-width: #{map-get($breakpoints, $width)}) {
+                @content;
+            }
+        }
+    }
+    @else {
+        @error "Property '#{$width}' is not defined in $breakpoints array";
+    }
+}
+
+@mixin breakpoint-range($start, $end) {
+
+    // Check if breakpoint exists
+    @if map-has-key($breakpoints, $start) and map-has-key($breakpoints, $end) {
+
+        @if $start == xs {
+            @media only screen and (max-width: #{map-get($breakpoints, $end)}) {
+                @content;
+            }
+        }
+        @else {
+            @media only screen and (min-width: #{map-get($breakpoints, $start)}) and (max-width: #{map-get($breakpoints, $end)}) {
+                @content;
+            }
+        }
+    }
+    @else {
+        @error "Property '#{$start}' or '#{$end}' is not defined.";
+    }
+}
+
+@mixin container($width: property(container), $padding: property(spacer-lg)) {
+    width: 100%;
+    max-width: $width;
+    @include margin-inline(auto);
+    @include padding-inline($padding);
+}
+
+@mixin inset {
+
+    @supports not (inset: 0) {
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+
+    @supports (inset: 0) {
+        inset: 0;
+    }
+}
+
+@mixin image-fill {
+    @include inset;
+    position: absolute;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+@mixin hidden {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+
+@mixin margin-inline($gap: auto) {
+
+    @supports (margin-inline: $gap) {
+        margin-inline: $gap;
+    }
+
+    @supports not (margin-inline: $gap) {
+        margin: {
+            left: $gap;
+            right: $gap;
+        }
+    }
+}
+
+@mixin padding-inline($gap) {
+
+    @supports (padding-inline: $gap) {
+        padding-inline: $gap;
+    }
+
+    @supports not (padding-inline: $gap) {
+        padding: {
+            left: $gap;
+            right: $gap;
+        }
+    }
+}

@@ -1,0 +1,145 @@
+
+input,
+select,
+textarea {
+    padding: property(spacer-md);
+    transition: border property(transition);
+    background-color: transparent;
+    font-family: inherit;
+    width: 100%;
+    
+    @include theme(light) {
+        color: color(black-000);
+        border: 1px solid color(grey-200);
+        // background-color: color(grey-000);
+    }
+
+    @include theme(dark) {
+        color: color(white);
+        border: 1px solid color(black-100);
+        // background-color: color(black-300);
+    }
+
+    // Focus state
+    &:focus {
+        border-color: color(primary);
+        outline: unset;
+    }
+
+    // Disabled
+    &:disabled {
+        // background-color: color(grey-100);
+        border-color: color(grey-400);
+        cursor: not-allowed;
+    }
+
+    // Placeholder
+    &::placeholder {
+        color: color(white);
+    }
+
+    // Error
+    // &:invalid {
+    //     border-color: color(primary);
+    // }
+    
+    + label {
+        cursor: pointer;
+    }
+}
+
+label {
+    @include flex(row, flex-start, center, property(spacer-sm));
+}
+
+select {
+    color: color(white);
+
+    &:checked {
+        color: color(primary);
+    }
+
+    option {
+        background-color: color(grey-100);
+        color: color(white);
+    }
+}
+
+textarea {
+    max-width: 100%;
+    width: 100% !important; // !important required, as to prevent the user from over-stretching an input, therefore breaking the layout width
+}
+
+[type="radio"],
+[type="checkbox"] {
+    // border: solid 1px #cccccc;
+    position: relative;
+    appearance: none;
+    padding: unset;
+    margin: unset;
+    cursor: pointer;
+
+    &:checked {
+        color: color(primary);
+    }
+
+    &:after {
+        position: absolute;
+        content: "";
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: property(spacer-sm);
+        height: property(spacer-sm);
+        background-size: contain;
+        background-repeat: no-repeat;
+        z-index: 1;
+        border-radius: 100%;
+    }
+}
+
+[type="radio"] {
+    $size: property(spacer-md);
+    width: $size;
+    height: $size;
+    border-radius: 100%;
+
+    &:checked {
+        border-width: calc(#{property(spacer-xs)} / 2);
+
+        &:after {
+            background: color(primary);
+        }
+    }
+}
+
+[type="checkbox"] {
+    $size: property(spacer-md);
+    width: $size;
+    height: $size;
+    border-radius: 2px;
+
+    &:checked {
+        border-color: color(primary);
+        background-color: color(primary);
+        
+        &:after {
+            // Encoded with: https://yoksel.github.io/url-encoder/
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='9' viewBox='0 0 11 9' fill='none'%3E%3Cpath d='M9.3125 0.1875L3.64583 6.10054L1.3125 3.66576L0.3125 4.70924L3.64583 8.1875L10.3125 1.23098L9.3125 0.1875Z' fill='#{encode_color(color(white, false))}'/%3E%3C/svg%3E");
+            background-position: 0% 50%;
+        }
+    }
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
+}
+
+form {
+    @include grid(property(spacer-md));
+}

@@ -1,0 +1,108 @@
+@import 'mixin';
+@import 'function';
+
+$breakpoints: (
+    xs: 499px,
+    sm: 500px,
+    md: 700px,
+    lg: 900px,
+    xl: 1200px,
+    xxl: 1280px
+);
+
+// Based on Google's Material UI, while this is far from a be-all, end-all solution, it's a start. Colour systems vary heavily per project, as some might mix and match light/dark, meaning the colours must be interchangable.
+// https://material.io/design/color/the-color-system.html#color-usage-and-palettes
+$colors: (
+
+    // Shades
+	grey-000: #1E2227,
+	grey-100: #272D33,
+	grey-200: #363A42,
+	grey-300: #7F8091,
+	grey-400: #AAB2C7,
+	white: #FFFFFF,
+	black: #000000,
+	primary: #F97200,
+	secondary: #99A29E,
+
+    // Specific
+    title: #FFFFFF,
+    body: #CCCCCC,
+    link: #FFFFFF,
+    background: #1A1A1A,
+    danger: red,
+    warning: orange,
+    success: green,
+);
+
+$headings: (
+    h1: 1.875rem,
+    h2: 1.750rem,
+    h3: 1.500rem,
+    h4: 1.375rem,
+    h5: 1.250rem,
+    h6: 1.125rem
+);
+
+$gap: 1rem;
+
+$property: (
+	navigation: 4.5rem,
+    container: nth(map-values($breakpoints), -3),
+    spacer-xs: $gap / 4,
+    spacer-sm: $gap / 2,
+    spacer-md: $gap,
+    spacer-lg: $gap * 2,
+    spacer-xl: $gap * 4,
+    radius-inner: $gap / 4,
+    radius-outer: $gap / 2,
+    transition: 80ms ease,
+    container-padding: 7.5vw,
+);
+
+$buttons: (
+    primary: (
+        color: color(black),
+        background: color(primary),
+        hover: (
+            background: lighten(color(primary, true), 5%)
+        ),
+        focus: (
+            outline: color(primary)
+        ),
+        disabled: (
+            background: color(grey-400)
+        )
+    )
+);
+
+$fonts: (
+    heading: (
+        optimal: 'untitled_sansbold', // 'Moret',
+        fallback: ('Gotham', 'Helvetica', 'Arial'),
+        type: 'sans-serif'
+    ),
+    body: (
+        optimal: 'untitled_sansregular', // 'inter',
+        fallback: ('Gotham', 'Helvetica', 'Arial'),
+        type: 'sans-serif'
+    )
+);
+
+:root {
+    
+    // Properties
+    @each $key, $value in $property {
+        #{'--property-' + $key}: #{$value};
+    }
+
+    // Colors
+    @each $key, $value in $colors {
+        #{'--color-' + $key}: $value;
+    }
+
+    // Fonts
+    @each $key, $value in $fonts {
+        #{'--font-' + $key}: font_fallback($key);
+    }
+}

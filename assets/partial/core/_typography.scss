@@ -1,0 +1,50 @@
+// Personally, after developing many websites, I believe setting the font size specifically for inline content is the best course of action, any any font sizes for home, landing or custom pages should be specified with a custom class, either assigned in the HTML or @extend in the SCSS (effectively the same, however @extending in the CSS creates a easier to maintain file).
+
+:where(h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6) {
+    margin: unset;
+    margin-bottom: property(spacer-md);
+    font-family: font(heading);
+    line-height: 1.2;
+    
+    a {
+        color: currentColor;
+        text-decoration: none;
+        position: relative;
+
+        // &:hover:before {
+        //     opacity: 1;
+        // }
+
+        // &:before {
+        //     content: '\0023';
+        //     position: absolute;
+        //     left: calc(-1 * #{property(spacer-xs)});
+        //     top: 50%;
+        //     transform: translate(-100%, -50%);
+        //     font-size: 1.5rem;
+        //     opacity: 0;
+        // }
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: 1.2;
+}
+
+@each $key, $value in $headings {
+    $index: index($headings, $key $value);
+
+    h#{$index},
+    .h#{$index} { 
+        font-size: $value;
+    }
+}
+
+a {
+    color: currentColor;
+}

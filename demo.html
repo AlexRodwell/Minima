@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+
+    <!--  -->
+    <title>Minima</title>
+
+    <!--  -->
+    <meta name="description" content="A description of the page">
+
+    <!--  -->
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <!--  -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Allow search engine crawling - https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name#other_metadata_names -->
+    <meta name="robots" content="index, follow">
+
+    <!-- Base Theme -->
+    <link href="assets/base.css" type="text/css" rel="stylesheet" defer>
+
+    <!-- Print Theme -->
+    <!-- <link media="print" href="assets/print.css" type="text/css" rel="stylesheet"> -->
+
+    <!-- Opengraph Meta - https://ogp.me/#metadata -->
+    <meta property="og:title" content="Stüssy’s Top 10 Sneaker Collaborations" />
+    <meta property="og:description" content="Lorem Ipsum Dolor Sit Amet" />
+    <meta property="og:url" content="https://minima.dev/" />
+
+    <!-- Article -->
+    <meta property="article:published_time" content="2025-12-01" />
+    <meta property="article:modified_time" content="2025-12-02" />
+    <meta property="article:author" content="John Doe" />
+    <meta property="article:section" content="Technology" />
+    <meta property="article:tag" content="Software, Networking, CPU, Internet" />
+
+    <!-- Opengraph Images - https://ogp.me/#structured -->
+    <meta property="og:image" content="http://example.com/ogp.jpg" />
+    <meta property="og:image:secure_url" content="https://example.com/ogp.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="A description of the opengraph image" />
+
+    <!-- Theme -->
+    <meta name="theme-color" content="#F97200">
+
+</head>
+
+<body id="demo">
+
+    <svg hidden>
+        <defs>
+
+            <symbol id="extra-borrowing-icon" width="22" height="18" viewBox="0 0 22 18" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10.55.5a1 1 0 0 1 .829 1.56L11.41 2c-.255.441-.41.954-.41 1.5A3 3 0 1 0 16.599 2a1.046 1.046 0 0 1-.129-.5 1 1 0 0 1 .883-.993L17.47.5H20a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2l.001-3.174a1 1 0 0 0-.874-.86l-.117-.006a.996.996 0 0 0-.468.116A2.95 2.95 0 0 1 3.01 12a3 3 0 1 1 1.533-5.58l-.034-.014a1 1 0 0 0 1.492-.732L6 2.5A2 2 0 0 1 7.85.505L8 .5h2.55z" fill-rule="evenodd"/>
+            </symbol>
+
+            <symbol id="extra-features-icon" width="20" height="17" viewBox="0 0 20 17" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14.75 0a5.25 5.25 0 0 1 4.814 7.349c-.017.049-.038.1-.064.151-1.174 2.349-3.77 5.24-7.79 8.675l-.42.358a2 2 0 0 1-2.58 0C4.453 12.94 1.716 9.93.5 7.5a1.308 1.308 0 0 1-.065-.152A5.25 5.25 0 0 1 10 3.01 5.251 5.251 0 0 1 14.75 0z" fill-rule="evenodd"/>
+            </symbol>
+
+            <symbol id="icon-switching-service" width="20" height="18" viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15.293 10.293a1 1 0 0 1 1.414 0l3 3A1.006 1.006 0 0 1 20 14v.032l-.004.054L20 14a1.008 1.008 0 0 1-.196.595.999.999 0 0 1-.097.112l.08-.09c-.023.029-.047.057-.073.083l-.007.007-3 3a1 1 0 0 1-1.414-1.414l1.292-1.294-2.694.001a3 3 0 0 1-2.23-.993l-1.816-2.018 1.346-1.495 1.956 2.175a1 1 0 0 0 .744.331l2.694-.001-1.292-1.292a1 1 0 0 1-.083-1.32zM16.613.21l.094.083 3 3c.029.028.055.059.08.09l.005.006c.022.029.043.06.062.09l.021.037c.011.02.022.04.031.06l.023.053A.988.988 0 0 1 20 4l-.002.059-.001.016-.008.074a1.083 1.083 0 0 1-.06.222l-.023.052a1.018 1.018 0 0 1-.102.172l-.025.03c.004-.002.002-.001.001 0l-.013.015-.01.013-.05.054-3 3a1 1 0 0 1-1.497-1.32l.083-.094 1.292-1.294L13.891 5a1 1 0 0 0-.658.246l-.086.085-7.808 8.676a3 3 0 0 1-2.034.987L3.109 15H1a1 1 0 0 1-.117-1.993L1 13h2.11a1 1 0 0 0 .657-.246l.086-.085 7.808-8.676a3 3 0 0 1 2.034-.987L13.891 3l2.694-.001-1.292-1.292a1 1 0 0 1-.083-1.32l.083-.094a1 1 0 0 1 1.32-.083zM3.109 3a3 3 0 0 1 2.23.993L7.155 6.01 5.809 7.505 3.853 5.331A1 1 0 0 0 3.109 5H1a1 1 0 1 1 0-2h2.11zm16.67 1.625l-.072.082.06-.067.012-.015z" fill-rule="evenodd"/>
+            </symbol>
+
+            <symbol id="menu-close" width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
+                <path d="M.293.293a1 1 0 0 1 1.414 0L7 5.585 12.293.293a1 1 0 0 1 1.32-.083l.094.083a1 1 0 0 1 0 1.414L8.415 7l5.292 5.293a1 1 0 0 1 .083 1.32l-.083.094a1 1 0 0 1-1.414 0L7 8.415l-5.293 5.292a1 1 0 0 1-1.32.083l-.094-.083a1 1 0 0 1 0-1.414L5.585 7 .293 1.707A1 1 0 0 1 .21.387z"></path>
+            </symbol>
+
+            <symbol id="menu-open" width="18" height="14" viewBox="0 0 18 14" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16.5 11a1.5 1.5 0 0 1 0 3h-15a1.5 1.5 0 0 1 0-3h15zm0-5.5a1.5 1.5 0 0 1 0 3h-15a1.5 1.5 0 0 1 0-3h15zm0-5.5a1.5 1.5 0 0 1 0 3h-15a1.5 1.5 0 0 1 0-3h15z"></path>
+            </symbol>
+
+        </defs>
+    </svg>
+
+    <div class="overlay" role="presentation"></div>
+
+    <header class="main-navigation">
+        <div class="main-navigation__container">
+
+            <div class="main-navigation__header">
+
+                <a href="#" class="main-navigation__logo" aria-label="Return to home">
+                    Brand
+                </a>
+                <!-- <button class="main-navigation__toggle js-close-main-navigation" aria-label="Close navigation" aria-expanded="false">
+                    <svg width="14" height="14">
+                        <use href="#menu-close" xlink:href="#menu-close"></use>
+                    </svg>
+                </button> -->
+            </div>
+            
+            <nav class="main-navigation__links-wrapper">
+
+                <button id="toggle" class="main-navigation__toggle" aria-label="Open navigation" aria-expanded="false">
+                    Menu
+                    <svg width="18" height="14" class="main-navigation__toggle__icon" role="presentation">
+                        <use href="#menu-open" xlink:href="#menu-open"></use>
+                    </svg>
+                </button>
+
+                <ul id="menu" class="main-navigation__links" tabindex="-1">
+
+                    <li class="main-navigation__links__item">
+                        <button class="main-navigation__links__link-toggle" aria-expanded="false">Accounts</button>
+                        <ul class="main-navigation__links__dropdown">
+                            <li class="main-navigation__links__dropdown__item">
+                                <a href="#" class="main-navigation__links__link main-navigation__links__link--dropdown">Monzo CurrentAccounts</a>
+                            </li>
+                            <li class="main-navigation__links__dropdown__item">
+                                <a href="#" class="main-navigation__links__link main-navigation__links__link--dropdown">Monzo Plus Accounts</a>
+                            </li>
+                            <li class="main-navigation__links__dropdown__item">
+                                <a href="#" class="main-navigation__links__link main-navigation__links__link--dropdown">Monzo Premium Accounts</a>
+                            </li>
+                            <li class="main-navigation__links__dropdown__item">
+                                <a href="#" class="main-navigation__links__link main-navigation__links__link--dropdown">Monzo Business Accounts</a>
+                            </li>
+                            <li class="main-navigation__links__dropdown__item">
+                                <a href="#" class="main-navigation__links__link main-navigation__links__link--dropdown">Monzo Joint Accounts</a>
+                            </li>
+                            <li class="main-navigation__links__dropdown__item">
+                                <a href="#" class="main-navigation__links__link main-navigation__links__link--dropdown">Monzo 16 - 17 Accounts</a>
+                            </li>
+                            <li class="main-navigation__links__dropdown__item">
+                                <a href="#" class="main-navigation__links__link main-navigation__links__link--dropdown main-navigation__links__link--footer">
+                                    <!-- <img src="assets/icon-switching-service.svg" alt="" class="main-navigation__links__link__icon"> -->
+                                    <svg width="22" height="18" class="main-navigation__links__link__icon" role="presentation">
+                                        <use href="#icon-switching-service" xlink:href="#icon-switching-service"></use>
+                                    </svg>
+                                    Switch to Monzo
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="main-navigation__links__item">
+                        <button class="main-navigation__links__link-toggle" aria-expanded="false">Savings</button>
+                        <ul class="main-navigation__links__dropdown">
+                            <li class="main-navigation__links__dropdown__item">
+                                <a href="#" class="main-navigation__links__link">Saving with Monzo</a>
+                            </li>
+                            <li class="main-navigation__links__dropdown__item">
+                                <a href="#" class="main-navigation__links__link">Interest Rates</a>
+                            </li>
+                            <li class="main-navigation__links__dropdown__item">
+                                <a href="#" class="main-navigation__links__link">Cash ISAs</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="main-navigation__links__item">
+                        <button class="main-navigation__links__link-toggle"aria-expanded="false">Borrowing</button>
+                        <ul class="main-navigation__links__dropdown">
+                            <li class="main-navigation__links__dropdown__item">
+                                <a href="#" class="main-navigation__links__link">Monzo Flex</a>
+                            </li>
+                            <li class="main-navigation__links__dropdown__item">
+                                <a href="#" class="main-navigation__links__link">Overdrafts</a>
+                            </li>
+                            <li class="main-navigation__links__dropdown__item">
+                                <a href="#" class="main-navigation__links__link">Loans</a>
+                            </li>
+                            <li class="main-navigation__links__dropdown__item">
+                                <a href="#" class="main-navigation__links__link main-navigation__links__link--footer">
+                                    <!-- <img src="assets/extra-borrowing-icon.svg" alt="" class="main-navigation__links__link__icon"> -->
+                                    <svg width="20" height="17" class="main-navigation__links__link__icon" role="presentation">
+                                        <use href="#extra-borrowing-icon" xlink:href="#extra-borrowing-icon"></use>
+                                    </svg>
+                                    What are unsecured loans?
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="main-navigation__links__item">
+                        <button class="main-navigation__links__link-toggle" aria-expanded="false">Features</button>
+                        <ul class="main-navigation__links__dropdown">
+                            <li class="main-navigation__links__dropdown__item">
+                                <a href="#" class="main-navigation__links__link">Pots</a>
+                            </li>
+                            <li class="main-navigation__links__dropdown__item">
+                                <a href="#" class="main-navigation__links__link">Travelling with Monzo</a>
+                            </li>
+                            <li class="main-navigation__links__dropdown__item">
+                                <a href="#" class="main-navigation__links__link">Energy switching</a>
+                            </li>
+                            <li class="main-navigation__links__dropdown__item">
+                                <a href="#" class="main-navigation__links__link">Bill splitting</a>
+                            </li>
+                            <li class="main-navigation__links__dropdown__item">
+                                <a href="#" class="main-navigation__links__link main-navigation__links__link--footer">
+                                    <!-- <img src="assets/extra-features-icon.svg" alt="" class="main-navigation__links__link__icon"> -->
+                                    <svg width="20" height="18" class="main-navigation__links__link__icon" role="presentation">
+                                        <use href="#extra-features-icon" xlink:href="#extra-features-icon"></use>
+                                    </svg>
+                                    Making Monzo
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="main-navigation__links__item">
+                        <a href="#" class="main-navigation__links__link">Help</a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </div>
+    </header>
+
+    <section class="container">
+
+        <section>
+
+            <h2 id="buttons"><a href="#buttons">Buttons</a></h2>
+
+            <section class="row">
+
+                <button class="button button--primary">
+                    <svg class="icon icon--large" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0V0z" fill="none" />
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z" />
+                    </svg>
+                    Hello world
+                </button>
+
+                <button class="button button--primary" disabled>
+                    <svg class="icon icon--large" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0V0z" fill="none" />
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z" />
+                    </svg>
+                    Hello world
+                </button>
+                
+                <button class="button button--secondary">
+                    <svg class="icon icon--large" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0V0z" fill="none" />
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z" />
+                    </svg>
+                    Hello world
+                </button>
+                
+                <button class="button button--secondary" disabled>
+                    <svg class="icon icon--large" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0V0z" fill="none" />
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z" />
+                    </svg>
+                    Hello world
+                </button>
+
+            </section>
+
+            <h2 id="Inputs"><a href="#inputs">Inputs</a></h2>
+
+            <form>
+                
+                <label>
+                    Value One
+                    <input type="number" placeholder="Hello world" pattern="[0-9]" required/>
+                </label>
+                
+                <label>
+                    Value Two
+                    <input type="text" placeholder="Hello world" disabled/>
+                </label>
+                
+                <label>
+                    Value Three
+                    <input type="text" placeholder="Hello world" value="Hello world" disabled/>
+                </label>
+
+                <label>
+                    About
+                    <textarea></textarea>
+                </label>
+
+                <label for="html">
+                    <input type="radio" id="html" name="fav_language" value="HTML">
+                    HTML
+                </label>
+
+                <label for="css">
+                    <input type="radio" id="css" name="fav_language" value="CSS">
+                    CSS
+                </label>
+
+                <label for="javascript">
+                    <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+                    JavaScript
+                </label> 
+
+                <label>
+                    <input type="checkbox">
+                    Checkbox
+                </label>
+
+                <label for="cars">Select an option</label>
+                <select name="cars" id="cars">
+                    <option value="" disabled selected>Select your option</option>
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="mercedes">Mercedes</option>
+                    <option value="audi">Audi</option>
+                </select>
+
+                <button class="button button--secondary">Submit</button>
+            </form>
+
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="presentation">
+                <path d="M0 0h24v24H0V0z" fill="none" />
+                <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z" />
+            </svg>
+        
+            <svg class="icon icon--large" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="presentation">
+                <path d="M0 0h24v24H0V0z" fill="none" />
+                <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z" />
+            </svg>
+
+        </section>
+    
+        <main>
+        
+                <!-- Content taken from the BetTodayUSA article: https://www.bettodayusa.com/sports/soccer/fifa-announces-cryptodotcom-as-an-official-sponsor-of-the-2022-world-cup/ -->
+            <article>
+
+                <header>
+
+                    <p class="meta">By <a href="https://bettodayusa.com/" target="_blank" rel="author">BetTodayUSA</a> &bullet; Published <time datetime="2022-03-23">Mar. 23, 2022</time>, Updated <time datetime="2022-03-24">Mar. 24, 2022</time>
+                    </p>
+
+                    <!-- Heading -->
+                    <h1>FIFA announces Crypto.com as an official sponsor of the 2022 FIFA World Cup</h1>
+
+                </header>
+
+                <!-- Summary -->
+                <p class="summary">On <a href="https://www.fifa.com/tournaments/mens/worldcup/qatar2022/media-releases/crypto-com-unveiled-as-fifa-world-cup-qatar-2022-tm-official-sponsor" target="_blank">Tuesday</a>, FIFA announced that Crypto.com will be an Official Sponsor of the 2022 FIFA World Cup in Qatar.</p>
+
+                
+                <figure>
+                    <!-- Picture, allows you to return image sized the users device, allowing you to decrease transfer usage, provided you have an image CDN/API to handle image resizing -->
+                    <picture>
+                        <source media="(max-width: 414px)" srcset="">
+                        <source media="(max-width: 768px)" srcset="">
+                        <source media="(min-width: 1024px)" srcset="">
+                        <img src="/assets/thumbnail.jpg" alt="Mark Zuckerberg, Facebook’s chief executive, has been committed to building the “metaverse,” a composite universe melding online, virtual and augmented worlds that people can seamlessly traverse. Credit: Eric Risberg/Associated Press" loading="lazy" decoding="async">
+                    </picture>
+                    <figcaption>Credit: <a href="https://www.shutterstock.com/g/Pamela+Brick" target="_blank" rel="author">Pamela Brick</a></figcaption>
+                </figure>
+
+                <p>“Crypto.com has already demonstrated a commitment to supporting top-tier teams and leagues, major events and iconic venues across the world, and there is no platform bigger, or with a greater reach and cultural impact, than FIFA’s global platform of football,” said Kay Madati, FIFA’s Chief Commercial Officer.</p>
+
+                <p>“We are delighted to have a global brand like crypto.com join us as a sponsor of the exciting and groundbreaking FIFA World Cup in Qatar, ultimately helping to grow our beautiful game on a global scale.”</p>
+
+                <ul>
+                    <li>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                    <li>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora ullam recusandae voluptatem fugiat ratione perferendis soluta deleniti.
+                        <ul>
+                            <li>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora ullam recusandae voluptatem fugiat ratione perferendis soluta deleniti.</li>
+                        </ul>
+                    </li>
+                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis amet sint ea assumenda labore veniam cumque quas magnam blanditiis, placeat vitae rerum cum hic.</li>
+                </ul>
+
+                <p>The Singapore-based company will be the exclusive cryptocurrency&nbsp;<a href="https://crypto.com/company-news/crypto-com-unveiled-as-fifa-world-cup-qatar-2022-official-sponsor" target="_blank">trading platform</a> for the international tournament, which runs from November 21 to December 18. The company’s brand will be on display inside and outside the tournament's stadiums in Qatar.</p>
+
+                <p>“We could not be more excited to sponsor the FIFA World Cup, one of the most prestigious tournaments in the world, and to drive further awareness of crypto.com globally,” said Kris Marszalek, co-founder and CEO of Crypto.com. “Through our partnership with FIFA, we will continue to use our platform in innovative ways so that crypto.com can power the future of world-class sports and fan experiences around the world.”</p>
+
+                <ol>
+                    <li>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                    <li>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora ullam recusandae voluptatem fugiat ratione perferendis soluta deleniti.
+                        <ol>
+                            <li>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora ullam recusandae voluptatem fugiat ratione perferendis soluta deleniti.</li>
+                        </ol>
+                    </li>
+                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis amet sint ea assumenda labore veniam cumque quas magnam blanditiis, placeat vitae rerum cum hic.</li>
+                </ol>
+
+                <p>The partnership between FIFA and crypto.com is the latest investment in sports for crypto.com, having established sponsorship deals across high-level sports and entertainment worldwide including Formula 1, Ultimate Fighting Championship (UFC), Aussie Football League (AFL), Serie A Soccer, Paris St. Germain (Soccer), Montreal Canadiens (NHL) and the Philadelphia 76ers (NBA).</p>
+
+                <blockquote>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos magni accusantium veritatis quibusdam at distinctio labore hic sapiente.</p>
+                    <cite>John Doe, Google</cite>
+                </blockquote>
+
+                <p>The company, founded in 2016, also acquired the naming rights&nbsp;<a href="https://theathletic.com/news/staples-center-to-be-renamed-cryptocom-arena-as-part-of-20-year-naming-rights-deal/tKIBSv6jWb1b/" target="_blank">last year</a> to the Staples Center - home of the NBA franchises the Los Angeles Lakers and Los Angeles Clippers - in a 20-year deal worth more than $700 million. To date, this is the largest venue naming rights deal in US history.</p>
+
+                <h2 id="how-does-this-change-the-sports-marketing-landscape"><a href="#how-does-this-change-the-sports-marketing-landscape">How does this change the sports marketing landscape?</a></h2>
+                
+                <p>Since 2021&nbsp;<a href="https://crypto.com/eea/" target="_blank">Crypto.com</a> has established a number of sponsorship deals, representing a core component of its brand building campaign. The company was among several industry leaders, such as FTX and Coinbase, to run advertisements during the Super Bowl on February 13. Crypto.com’s 30-second commercial featured NBA superstar LeBron James explaining and educating about crypto technology.</p>
+
+                <section class="table">
+                    <table>
+                        <thead>
+                            <th>Type</th>
+                            <th>Description</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Lorem ipsum dolor sit amet.</td>
+                                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, hic. Fugit deleniti ullam beatae enim similique corrupti illum magni itaque quo dolor, nisi in mollitia nemo voluptatem quasi quam ipsam?</td>
+                            </tr>
+                            <tr>
+                                <td>Lorem ipsum dolor sit amet.</td>
+                                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, hic. Fugit deleniti ullam beatae enim similique corrupti illum magni itaque quo dolor, nisi in mollitia nemo voluptatem quasi quam ipsam?</td>
+                            </tr>
+                            <tr>
+                                <td>Lorem ipsum dolor sit amet.</td>
+                                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, hic. Fugit deleniti ullam beatae enim similique corrupti illum magni itaque quo dolor, nisi in mollitia nemo voluptatem quasi quam ipsam?</td>
+                            </tr>
+                            <tr>
+                                <td>Lorem ipsum dolor sit amet.</td>
+                                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, hic. Fugit deleniti ullam beatae enim similique corrupti illum magni itaque quo dolor, nisi in mollitia nemo voluptatem quasi quam ipsam?</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <p>Your move, FTX. The cryptocurrency derivatives trading platform has been running crypto.com close when it comes to inking top-tier sporting relationships. Deals in place with Major League Baseball (MLB), Miami Heat (NBA), Cal Bears Stadium (college football), Tom Brady, Stephen Curry, Trevor Lawrence, Shohei Ohtani, eSports team TSM. With FTX exchange’s history rooted in the US it is no surprise that the company has prioritized US sponsorships, unlike Crypto.com that have spread their name recognition wider over a greater breadth of international sports.</p>
+
+            </article>
+
+        </main>
+
+        <aside>
+        </aside>
+
+    </section>
+
+    <script>
+		const toggle = document.querySelector('#toggle')
+		const menu = document.querySelector('#menu')
+		const overlay = document.querySelector('.overlay')
+
+		const mobile = (state) => {
+
+			if (state) {
+				document.body.classList.add('lock')
+                menu.classList.add('main-navigation__links--open');
+				overlay.classList.add('overlay--open')
+			}
+			else {
+				document.body.classList.remove('lock')
+                menu.classList.remove('main-navigation__links--open')
+				overlay.classList.remove('overlay--open')
+			}
+		}
+
+		// 
+		toggle.addEventListener('click', () => {
+			menu.classList.contains('main-navigation__links--open') ? mobile(false) : mobile(true)
+		})
+
+		// Remove focus of the mobile menu if an element outside of it is focused, passively listener
+		document.addEventListener('focusin', () => {
+			if (!menu.contains(document.activeElement)) mobile(false)
+		}, true)
+
+		// 
+		overlay.addEventListener('click', () => {
+			if (overlay.classList.contains('overlay--open')) mobile(false)
+		})
+	</script>
+
+</body>
+</html>

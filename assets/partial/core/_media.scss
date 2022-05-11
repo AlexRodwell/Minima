@@ -1,0 +1,21 @@
+picture,
+img {
+    @include flex(null, null, null, null);
+}
+
+img {
+    width: 100%;
+    image-rendering: auto;
+}
+
+picture {
+    display: flex;
+}
+
+svg {
+    fill: currentColor;
+}
+
+audio {
+    
+}
