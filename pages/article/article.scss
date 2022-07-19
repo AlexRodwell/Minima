@@ -1,18 +1,7 @@
+@import '../../assets/css/base';
+
 article {
     position: relative;
-
-    // Gradient stickied to the bottom of an article, for demo purposes
-    // &:after {
-    //     width: 120%;
-    //     height: 10vh;
-    //     content: '';
-    //     position: sticky;
-    //     display: inline-flex;
-    //     transform: translateX(-10%);
-    //     bottom: 0;
-    //     $fill: color(background, true);
-    //     background: linear-gradient(0deg, rgba($fill, 1) 0%, rgba($fill, 0) 100%); 
-    // }
 
     * {
         hyphens: none;
@@ -138,21 +127,6 @@ article {
         }
     }
 
-    .table {
-        overflow-x: scroll;
-        position: relative;
-        
-        @include breakpoint-down(sm) {
-            border-right: 1px solid color(grey-200);
-            max-width: calc(100vw - (2 * 7.5vw));
-
-            table {
-                min-width: 150vw;
-                border-right: unset;
-            }
-        }
-    }
-
     table {
         text-align: left;
         border-collapse: collapse;
@@ -171,5 +145,97 @@ article {
         tr {
             border-bottom: 1px solid color(grey-200);
         }
+    }
+}
+
+section.container {
+    @include grid(property(spacer-lg));
+    padding: {
+        top: property(spacer-lg);
+        bottom: property(spacer-lg);
+    }
+
+    @include breakpoint-up(lg) {
+        grid-template-columns: 6fr 2fr;
+    }
+
+    > section {
+        grid-column: 1/-1;
+    }
+
+    > main {
+
+    }
+
+    > aside {
+        background: rgba(white, 0.05);
+
+        @include breakpoint-down(lg) {
+            @include hidden;
+        }
+    }
+}
+
+.summary {
+    font-size: 1.125rem;
+}
+
+.row {
+    @include flex(row, flex-start, center, property(spacer-md));
+    flex-wrap: wrap;
+}
+
+
+:where(h1, h2, h3, h4, h5, h6) {
+    
+    a {
+        color: currentColor;
+        text-decoration: none;
+        position: relative;
+
+        // &:hover:before {
+        //     opacity: 1;
+        // }
+
+        // &:before {
+        //     content: '\0023';
+        //     position: absolute;
+        //     left: calc(-1 * #{property(spacer-xs)});
+        //     top: 50%;
+        //     transform: translate(-100%, -50%);
+        //     font-size: 1.5rem;
+        //     opacity: 0;
+        // }
+    }
+}
+
+.table {
+    overflow-x: scroll;
+    position: relative;
+    
+    @include breakpoint-down(sm) {
+        border-right: 1px solid color(grey-200);
+        max-width: calc(100vw - (2 * 7.5vw));
+
+        table {
+            min-width: 150vw;
+            border-right: unset;
+        }
+    }
+}
+
+article {
+    
+    // Gradient stickied to the bottom of an article, for demo purposes
+    &:after {
+        width: 120%;
+        height: 10vh;
+        content: '';
+        position: sticky;
+        display: inline-flex;
+        transform: translateX(-10%);
+        bottom: 0;
+        $fill: color(background, true);
+        background: linear-gradient(0deg, rgba($fill, 1) 0%, rgba($fill, 0) 100%); 
     }
 }

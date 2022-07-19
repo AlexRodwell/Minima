@@ -1,0 +1,19 @@
+@import '../../assets/css/base';
+
+.breadcrumb {
+    
+    &__list {
+        list-style: none;
+        margin: unset;
+        padding: unset;
+        @include flex(row, flex-start, center, property(spacer-md));
+    }
+
+    &__item {
+
+        &:not(:last-of-type):after {
+            content: '>';
+            margin-left: property(spacer-md);
+        }
+    }
+}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <title>Buttons</title>
+    <meta name="description" content="A description of the page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="buttons.css" type="text/css" rel="stylesheet" defer>
+</head>
+<body>
+
+    <section class="container">
+    
+        <button class="button button--primary">
+            <svg class="icon icon--large" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M0 0h24v24H0V0z" fill="none" />
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z" />
+            </svg>
+            Hello world
+        </button>
+
+        <button class="button button--primary" disabled>
+            <svg class="icon icon--large" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M0 0h24v24H0V0z" fill="none" />
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z" />
+            </svg>
+            Hello world
+        </button>
+        
+        <button class="button button--secondary">
+            <svg class="icon icon--large" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M0 0h24v24H0V0z" fill="none" />
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z" />
+            </svg>
+            Hello world
+        </button>
+        
+        <button class="button button--secondary" disabled>
+            <svg class="icon icon--large" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M0 0h24v24H0V0z" fill="none" />
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z" />
+            </svg>
+            Hello world
+        </button>
+
+        <form>
+            
+            <label>
+                Value One
+                <input type="number" placeholder="Hello world" pattern="[0-9]" required/>
+            </label>
+            
+            <label>
+                Value Two
+                <input type="text" placeholder="Hello world" disabled/>
+            </label>
+            
+            <label>
+                Value Three
+                <input type="text" placeholder="Hello world" value="Hello world" disabled/>
+            </label>
+
+            <label>
+                About
+                <textarea></textarea>
+            </label>
+
+            <label for="html">
+                <input type="radio" id="html" name="fav_language" value="HTML">
+                HTML
+            </label>
+
+            <label for="css">
+                <input type="radio" id="css" name="fav_language" value="CSS">
+                CSS
+            </label>
+
+            <label for="javascript">
+                <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+                JavaScript
+            </label> 
+
+            <label>
+                <input type="checkbox">
+                Checkbox
+            </label>
+
+            <label for="cars">Select an option</label>
+            <select name="cars" id="cars">
+                <option value="" disabled selected>Select your option</option>
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="audi">Audi</option>
+            </select>
+
+            <button class="button button--secondary">Submit</button>
+        </form>
+
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="presentation">
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z" />
+        </svg>
+    
+        <svg class="icon icon--large" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="presentation">
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z" />
+        </svg>
+
+    </section>
+
+</body>
+</html>

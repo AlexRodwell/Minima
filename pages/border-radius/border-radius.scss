@@ -1,0 +1,19 @@
+@import '../../assets/css/base';
+
+body {
+    @include flex(column, center, center, null);
+}
+
+div {
+    $radius: property(spacer-md);
+    $padding: property(spacer-sm);
+    background-color: red;
+    padding: $padding;
+    border-radius: $radius;
+    
+    > div {
+        border-radius: calc($radius - $padding);
+        padding: 0.5rem;
+        background-color: blue;
+    }
+}

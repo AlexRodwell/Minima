@@ -1,3 +1,7 @@
+@function variable_prefix($prefix, $key) {
+    @return '--' + $theme + '-' + $prefix + '-' + $key;
+}
+
 @function color($key, $hex: false) {
 
     @if map-has-key($colors, $key) {
@@ -6,7 +10,7 @@
             @return map-get($colors, $key);
         }
         @else {
-            @return var(unquote('--color-' + $key), map-get($colors, $key));
+            @return var(#{variable_prefix('color', $key)}, map-get($colors, $key));
         }
     }
 
@@ -21,7 +25,7 @@
         $raw: map-get($property, $name);
 
         @if $var {
-            @return var(unquote('--property-' + $name), $raw);
+            @return var(#{variable_prefix('property', $name)}, $raw);
         }
         @else {
             @return $raw;
@@ -45,13 +49,28 @@
 
     @if map-has-key($fonts, $value) {
         // Return variable and last item of fallback array, which should be a generic family name: https://developer.mozilla.org/en-US/docs/Web/CSS/font-family#syntax
-        @return var(#{'--font-' + $value}, font_fallback($value));
+        @return var(#{variable_prefix('font', $value)}, font_fallback($value));
     }
     @else {
         @error 'Font type \'#{$type}\' doesn\'t exist';
     }
 }
 
+@function layer($name) {
+
+    $layer: 'layer-' + $name;
+    $raw: map-get($property, $layer);
+
+    @if map-has-key($property, $layer) {
+        // @return map-get($property, $layer);
+        @return var(#{variable_prefix('property', $layer)}, $raw);
+    }
+    @else {
+        @error 'Layer \'#{$index}\' doesn\'t exist';
+    }
+}
+
+// Encoding colours for use in base64 encoded SVG
 // https://gist.github.com/certainlyakey/e9c0d8f5c87ff47e3d5b#gistcomment-3458258
 @function encode_color($string) {
 

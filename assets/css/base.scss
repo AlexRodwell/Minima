@@ -1,3 +1,142 @@
+@import 'minima/core';
+
+:root {
+    
+    // Properties
+    @each $key, $value in $property {
+        #{variable_prefix('property', $key)}: #{$value};
+    }
+
+    // Colors
+    @each $key, $value in $colors {
+        #{variable_prefix('color', $key)}: $value;
+    }
+
+    // Fonts
+    @each $key, $value in $fonts {
+        #{variable_prefix('font', $key)}: font_fallback($key);
+    }
+}
+
+// @font-face {
+//     font-family: 'untitled_sansregular';
+//     src: url('fonts/untitled_sans_regular-webfont.woff2') format('woff2'), url('fonts/untitled_sans_regular-webfont.woff') format('woff');
+//     font-weight: normal;
+//     font-style: normal;
+//     font-named-instance: 'Regular';
+// }
+
+// @font-face {
+//     font-family: 'untitled_sansbold';
+//     src: url('fonts/untitled_sans_bold-webfont.woff2') format('woff2'), url('fonts/untitled_sans_bold-webfont.woff') format('woff');
+//     font-weight: normal;
+//     font-style: bold;
+//     font-named-instance: 'Bold';
+// }
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    font-size: 16px; // Fallback for clamp()
+    font-size: clamp(16px, 0.75rem + 1vw, 20px); // Scales between 400-800px https://clamp.font-size.app/
+    scrollbar-width: thin;
+    scrollbar-color: color(primary) color(background);
+    scroll-padding-top: property(spacer-xl);
+    scrollbar-gutter: stable;
+    font-family: font(body);
+    color-scheme: dark light; // defer to OS preference - https://web.dev/color-scheme/
+}
+
+body {
+    margin: unset;
+    line-height: property(line-height-base);
+    background: color(background);
+    color: color(body);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+[hidden] {
+    @include hidden;
+}
+
+:root {
+    accent-color: color(primary);
+}
+
+:focus,
+:focus-visible {
+    outline-color: color(primary);
+}
+
+::selection {
+    background-color: color(primary);
+    color: color(white);
+}
+
+::marker,
+::-webkit-calendar-picker-indicator,
+::-webkit-clear-button,
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+    color: color(primary);
+}
+
+picture,
+img {
+    display: flex;
+}
+
+img {
+    width: 100%;
+    image-rendering: auto;
+}
+
+picture {
+    display: flex;
+}
+
+svg {
+    fill: currentColor;
+}
+
+audio {
+    
+}
+
+.container {
+    @include container;
+
+    @include breakpoint-down(md) {
+        @include padding-inline(property(container-padding));
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: unset;
+    margin-bottom: property(spacer-md);
+    font-family: font(heading);
+    line-height: property(line-height-heading);
+}
+
+@each $key, $value in $headings {
+    $index: index($headings, $key $value);
+
+    h#{$index} { 
+        font-size: $value;
+    }
+}
+
+a {
+    color: currentColor;
+}
 
 input,
 select,

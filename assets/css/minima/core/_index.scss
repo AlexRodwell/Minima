@@ -1,5 +1,7 @@
-@import 'mixin';
-@import 'function';
+@import 'functions';
+@import 'mixins';
+
+$theme: 'minima';
 
 $breakpoints: (
     xs: 499px,
@@ -20,6 +22,7 @@ $colors: (
 	grey-200: #363A42,
 	grey-300: #7F8091,
 	grey-400: #AAB2C7,
+    grey-500: #E9ECF4,
 	white: #FFFFFF,
 	black: #000000,
 	primary: #F97200,
@@ -44,65 +47,40 @@ $headings: (
     h6: 1.125rem
 );
 
-$gap: 1rem;
-
 $property: (
 	navigation: 4.5rem,
-    container: nth(map-values($breakpoints), -3),
-    spacer-xs: $gap / 4,
-    spacer-sm: $gap / 2,
-    spacer-md: $gap,
-    spacer-lg: $gap * 2,
-    spacer-xl: $gap * 4,
-    radius-inner: $gap / 4,
-    radius-outer: $gap / 2,
+    container: nth(map-values($breakpoints), -2),
+    spacer-xs: 0.25rem,
+    spacer-sm: 0.5rem,
+    spacer-md: 1rem,
+    spacer-lg: 2rem,
+    spacer-xl: 4rem,
+    spacer-xxl: 8rem,
+    radius-inner: 0.25rem,
+    radius-outer: 0.5rem,
     transition: 80ms ease,
     container-padding: 7.5vw,
-);
-
-$buttons: (
-    primary: (
-        color: color(black),
-        background: color(primary),
-        hover: (
-            background: lighten(color(primary, true), 5%)
-        ),
-        focus: (
-            outline: color(primary)
-        ),
-        disabled: (
-            background: color(grey-400)
-        )
-    )
+    layer-background: -1,
+    layer-base: 1,
+    layer-sticky: 2,
+    layer-fixed: 3,
+    layer-backdrop: 4,
+    layer-modal: 5,
+    layer-popup: 6,
+    layer-tooltip: 7,
+    line-height-heading: 1.2,
+    line-height-base: 1.4,
 );
 
 $fonts: (
     heading: (
-        optimal: 'untitled_sansbold', // 'Moret',
+        optimal: 'untitled_sansbold',
         fallback: ('Gotham', 'Helvetica', 'Arial'),
-        type: 'sans-serif'
+        type: sans-serif
     ),
     body: (
-        optimal: 'untitled_sansregular', // 'inter',
+        optimal: 'untitled_sansregular',
         fallback: ('Gotham', 'Helvetica', 'Arial'),
-        type: 'sans-serif'
+        type: sans-serif
     )
 );
-
-:root {
-    
-    // Properties
-    @each $key, $value in $property {
-        #{'--property-' + $key}: #{$value};
-    }
-
-    // Colors
-    @each $key, $value in $colors {
-        #{'--color-' + $key}: $value;
-    }
-
-    // Fonts
-    @each $key, $value in $fonts {
-        #{'--font-' + $key}: font_fallback($key);
-    }
-}

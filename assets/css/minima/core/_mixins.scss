@@ -1,0 +1,257 @@
+@mixin theme($scheme) {
+
+    @if $scheme == dark {
+        @media only screen and (prefers-color-scheme: dark) {
+            @content;
+        }
+    }
+    @else if $scheme == light {
+        @media only screen and (prefers-color-scheme: no-preference), (prefers-color-scheme: light) {
+            @content;
+        }
+    }
+    @else {
+        @error 'Theme \'#{$scheme}\' is invalid or not defined';
+    }
+}
+
+// Shortcut for writing quick grid setups, previously included columns and rows
+@mixin grid($gap: property(spacer-md), $grid: grid) {
+    display: $grid; // Default to grid, but optionally allowed to set inline-grid or subgrid
+    
+    @if $gap {
+        grid-gap: $gap;
+        gap: $gap;
+    }
+}
+
+// A shortcut for writing grid/flex gaps. While 'grid-gap' isn't necessary anymore, we include it for older browsers that have yet to support 'gap' as per the W3C specification
+@mixin gap($gap) {
+    grid-gap: $gap;
+    gap: $gap;
+}
+
+@mixin flex($direction: row, $justify: center, $align: center, $gap: property(spacer-md), $shrink: 0) {
+    display: flex;
+
+    @if $shrink == 0 {
+        flex-shrink: 0;
+    }
+
+    @if $direction {
+        flex-direction: $direction;
+    }
+
+    @if $justify {
+        justify-content: $justify;
+    }
+
+    @if $align {
+        align-items: $align;
+    }
+
+    @if $gap {
+        // gap: $gap;
+
+        @supports (gap: 1rem) {
+            grid-gap: $gap;
+            gap: $gap;
+
+            // @media screen and (min-color-index:0) and(-webkit-min-device-pixel-ratio:0) {
+            //     grid-gap: unset;
+            //     gap: unset;
+            //     
+            //     > *:not(:last-of-type) {
+            //         @if $direction == row {
+            //             margin-right: $gap;
+            //         }
+            //         @else {
+            //             margin-bottom: $gap;
+            //         }
+            //     }
+            // }
+        }
+
+        /* Pending testing: taken from another project, unsure if fully working on Safari, however with the latest Safari version, gap issues should no longer be an issue */
+        // @supports not (gap: 1rem) {
+        //     > *:not(:last-of-type) {
+        //         @if $direction == row {
+        //             margin-right: $gap;
+        //         }
+        //         @else {
+        //             margin-bottom: $gap;
+        //         }
+        //     }
+        // }
+
+        // @media not all and (min-resolution:.001dpcm) { @supports (-webkit-appearance:none) {
+        //         > *:not(:last-of-type) {
+        //             @if $direction == row {
+        //                 margin-right: $gap;
+        //             }
+        //             @else {
+        //                 margin-bottom: $gap;
+        //             }
+        //         }
+        //     }
+        // }
+    }
+}
+
+// Clone of bootstraps breakpoints: https://getbootstrap.com/docs/5.0/layout/breakpoints/
+@mixin breakpoint-up($width) {
+
+    // Check if breakpoint exists
+    @if map-has-key($breakpoints, $width) {
+        @if $width != xs {
+            @media only screen and (min-width: #{map-get($breakpoints, $width)}) {
+                @content;
+            }
+        }
+    }
+    @else {
+        @error "Property '#{$width}' is not defined in $breakpoints array";
+    }
+}
+
+@mixin breakpoint-down($width) {
+
+    // Check if breakpoint exists
+    @if map-has-key($breakpoints, $width) {
+        @if $width != xs {
+            @media only screen and (max-width: #{map-get($breakpoints, $width) - 1}) {
+                @content;
+            }
+        }
+    }
+    @else {
+        @error "Property '#{$width}' is not defined in $breakpoints array";
+    }
+}
+
+/* Pending removal: never used, and not immediately obvious/logical what direction this goes (up for reference, so lg would cover the width between breakpoint lg and xl) */
+// @mixin breakpoint-only($width) {
+// 
+//     // Check if breakpoint exists
+//     @if map-has-key($breakpoints, $width) {
+// 
+//         $total: length($breakpoints);
+//         $next: index(map-keys($breakpoints), $width) + 1;
+// 
+//         @if $next == 2 {
+//             @media only screen and (max-width: #{map-get($breakpoints, $width)}) {
+//                 @content;
+//             }
+//         }
+//         @else if $next <= $total and $next > 2 {
+//             $value: nth(map-values($breakpoints), $next);
+//             @media only screen and (max-width: #{$value}) and (min-width: #{map-get($breakpoints, $width)}) {
+//                 @content;
+//             }
+//         }
+//         @else if $next > $total {
+//             @media only screen and (min-width: #{map-get($breakpoints, $width)}) {
+//                 @content;
+//             }
+//         }
+//     }
+//     @else {
+//         @error "Property '#{$width}' is not defined in $breakpoints array";
+//     }
+// }
+
+/* Pending: rarely used, generally you should never have specific CSS for a given range unless there is an extreme edge case, instead you should be using a breakpoint for each step a change is required */
+@mixin breakpoint-range($start, $end) {
+
+    // Check if breakpoint exists
+    @if map-has-key($breakpoints, $start) and map-has-key($breakpoints, $end) {
+
+        @if $start == xs {
+            @media only screen and (max-width: #{map-get($breakpoints, $end)}) {
+                @content;
+            }
+        }
+        @else {
+            @media only screen and (min-width: #{map-get($breakpoints, $start)}) and (max-width: #{map-get($breakpoints, $end)}) {
+                @content;
+            }
+        }
+    }
+    @else {
+        @error "Property '#{$start}' or '#{$end}' is not defined.";
+    }
+}
+
+@mixin container($width: property(container), $padding: property(spacer-lg)) {
+    width: 100%;
+    max-width: $width;
+    @include margin-inline(auto);
+    @include padding-inline($padding);
+}
+
+@mixin inset {
+
+    @supports not (inset: 0) {
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+
+    @supports (inset: 0) {
+        inset: 0;
+    }
+}
+
+@mixin image-fill {
+    @include inset;
+    position: absolute;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+@mixin hidden {
+    display: none;
+    visibility: hidden;
+}
+
+@mixin word-wrap {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+@mixin margin-inline($gap: auto) {
+
+    @supports (margin-inline: $gap) {
+        margin-inline: $gap;
+    }
+
+    @supports not (margin-inline: $gap) {
+        margin: {
+            left: $gap;
+            right: $gap;
+        }
+    }
+}
+
+@mixin padding-inline($gap) {
+
+    @supports (padding-inline: $gap) {
+        padding-inline: $gap;
+    }
+
+    @supports not (padding-inline: $gap) {
+        padding: {
+            left: $gap;
+            right: $gap;
+        }
+    }
+}

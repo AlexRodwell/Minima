@@ -1,0 +1,354 @@
+@import '../../assets/css/base';
+
+body.lock {
+    overflow: hidden;
+}
+
+.main-navigation {
+    $height: calc(property(spacer-xl) + property(spacer-lg));
+    $padding: property(spacer-md);
+    background: color(grey-000);
+    // padding: {
+    //     top: property(spacer-md);
+    //     bottom: property(spacer-md);
+    // }
+    
+    &__container {
+        height: $height;
+        @extend .container;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    ////////////////////////////////////////////////////////////
+    // Header
+    &__header {
+
+    }
+
+    &__logo {
+        display: flex;
+        // padding: property(spacer-sm);
+        border-radius: property(radius-inner);
+        margin-left: calc(-1 * property(spacer-md));
+        
+        &__svg {
+            width: 10rem;
+            height: auto;
+        }
+    }
+
+    ////////////////////////////////////////////////////////////
+    // Wrapper
+    &__wrapper {
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+    }
+
+    &__toggle {
+        margin: 0;
+        background: transparent;
+        border: 0;
+        font-size: 1rem;
+        font-weight: 700;
+        text-decoration: none;
+        cursor: pointer;
+        transition: color 0.2s ease-in 0s;
+        color: color(white);
+        padding: property(spacer-md);
+        margin-right: calc(-1 * property(spacer-md));
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        border-radius: property(radius-inner);
+        gap: property(spacer-sm);
+
+        &__icon {
+            fill: color(white);
+        }
+
+        @include breakpoint-up(lg) {
+            display: none;
+        }
+
+        &:focus + ul,
+        &:focus-within + ul {
+            display: block;
+        }
+    }
+
+    &__links {
+        $gap: property(spacer-md);
+        display: flex;
+        flex-direction: column;
+        margin: unset;
+        padding: unset;
+        color: color(grey-000);
+        
+        @include breakpoint-up(lg) {
+            color: color(white);
+            flex-direction: row;
+        }
+
+        @include breakpoint-down(lg) {
+            gap: $gap;
+            padding: property(spacer-md);
+            transform: translateX(100%);
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            height: 100vh;
+            width: fit-content;
+            z-index: layer(base);
+            background-color: color(white);
+            overflow-x: auto;
+            scrollbar-width: thin;
+            scrollbar-color: color(grey-100) color(grey-000);
+            z-index: layer(sticky);
+            transition: transform 320ms ease-in-out, visibility 640ms ease-in-out;
+            visibility: visible;
+            transform: translateX(0%);
+            
+            &:not(&--open) {
+                visibility: hidden;
+                transform: translateX(100%);
+            }
+        }
+
+        &__item {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            border-left: none;
+            
+            @include breakpoint-up(lg) {
+                align-items: center;
+                flex-direction: row;
+
+                &:hover button + ul,
+                &:focus-within button + ul {
+                    opacity: 1;
+                    pointer-events: all;
+                    // transform: translateY(calc(-1 * $padding));
+                    transform: translateX(-50%); // translateY($height);
+                }
+            }
+
+            @include breakpoint-down(lg) {
+                padding-bottom: $gap;
+
+                &:not(:last-of-type) {
+                    border-bottom: 1px solid color(grey-500);
+                }
+            }
+
+            &--mega-menu {
+                position: unset;
+            }
+        }
+
+        &__dropdown {
+            padding: unset;
+            list-style: none;
+
+            @include breakpoint-up(lg) {
+                position: absolute;
+                top: $height;
+                left: 50%;
+                min-width: 360px;
+                height: auto;
+                display: grid;
+                // transform: translateX(-50%) translateY(0%);
+                transform: translateX(-50%); // translateY(property(spacer-sm));
+                transition: transform 120ms ease, opacity 120ms ease;
+                padding: $padding;
+                background-color: color(white);
+                color: color(grey-000);
+                border-radius: property(radius-inner);
+                box-shadow: 0 property(spacer-xs) property(spacer-sm) property(spacer-xs) rgba(0, 0, 0, 0.1);
+                opacity: 0;
+                pointer-events: none;
+                list-style: none;
+                z-index: layer(base);
+
+                &:before {
+                    $size: property(spacer-md);
+                    content: '';
+                    position: absolute;
+                    // top: calc(-1 * ($size / 4));
+                    left: 50%;
+                    width: $size;
+                    height: $size;
+                    display: block;
+                    background-color: color(white);
+                    border-radius: property(radius-inner);
+                    transform: rotate(45deg) translateX(-50%);
+                    // transform-origin: bottom;
+                    z-index: layer(background);
+                }
+
+                &__item {
+                    color: color(grey-000);
+                    border-radius: property(radius-inner);
+
+                    &--footer {
+                        z-index: layer(background);
+                    }
+
+                    &:hover,
+                    &:focus,
+                    &:focus-within {
+                        background-color: color(grey-500);
+                    }
+                }
+            }
+
+            &--mega-menu {
+                
+                @include breakpoint-up(lg) {
+                    @include container;
+                    // @include flex(row, flexstart, stretch, property(spacer-lg));
+                    @include grid(property(spacer-lg));
+                    grid-auto-flow: column;  
+                    grid-auto-columns: minmax(0, 1fr);
+                    margin-bottom: unset;
+                    padding: {
+                        top: property(spacer-lg);
+                        bottom: property(spacer-lg);
+                    }
+                    top: $height;
+                    transform: translateX(-50%); // translateY(property(spacer-sm));
+                    border-radius: unset;
+                    box-shadow: unset;
+
+                    &:before {
+                        // @include hidden;
+                    }
+
+                    &:after {
+                        top: 0;
+                        width: 100vw;
+                        height: 100%;
+                        left: 50%;
+                        right: 0;
+                        transform: translate(-50%);
+                        background-color: inherit;
+                        content: '';
+                        position: absolute;
+                        z-index: layer(background);
+                    }
+
+                    &__item {
+                        justify-content: center;
+                    }
+                }
+
+            }
+        }
+
+        &__link,
+        &__link-toggle {
+            font-size: 1rem;
+            padding: property(spacer-sm);
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: inherit;
+            gap: property(spacer-sm);
+            text-decoration: none;
+            border-radius: property(radius-inner);
+
+            @include breakpoint-up(lg) {
+                padding: $padding;
+            }
+        }
+
+        &__link {
+            color: inherit;
+
+            @include breakpoint-up(lg) {
+                &--footer {
+                    display: inherit;
+                    position: relative;
+                    margin-bottom: calc(-1 * $padding);
+                    color: #34495e;
+                    font-size: 1rem;
+                    font-weight: 500;
+                    transition: color 0.2s ease-in 0s;
+                    width: calc(100% + (2 * $padding));
+                    transform: translateX(calc(-1 * $padding));
+                    padding: {
+                        left: calc(2 * $padding);
+                        right: calc(2 * $padding);
+                    }
+                    
+                    &:after {
+                        content: '';
+                        width: 100%;
+                        height: 100%;
+                        background-color: whitesmoke;
+                        border-bottom-left-radius: property(radius-inner);
+                        border-bottom-right-radius: property(radius-inner);
+                        position: absolute;
+                        inset: 0;
+                        z-index: layer(background);
+                    }
+                }
+            }
+
+            &__icon {
+                display: inline-block;
+                vertical-align: middle;
+                fill: color(grey-100);
+
+                @include breakpoint-down(lg) {
+                    display: none;
+                }
+            }
+        }
+
+        &__link-toggle {
+            margin: unset;
+            border: unset;
+            background: unset;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+
+            @include breakpoint-up(lg) {
+                color: color(white);
+            }
+
+            @include breakpoint-down(lg) {
+                // opacity: 0.5;
+                // @include hidden;
+                color: color(grey-300);
+            }
+            
+            &:focus + ul {
+                opacity: 1;
+                pointer-events: all;
+            }
+        }
+    }
+}
+
+.overlay {
+    inset: 0;
+    position: fixed;
+    background-color: rgba(black, 0.5);
+    opacity: 0;
+    transition: 240ms ease;
+    pointer-events: none;
+    z-index: layer(base);
+
+    &--open {
+        opacity: 1;
+        pointer-events: all;
+    }
+}
