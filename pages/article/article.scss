@@ -3,9 +3,9 @@
 article {
     position: relative;
 
-    * {
-        hyphens: none;
-    }
+    // * {
+    //     hyphens: none;
+    // }
 
     :where(h1, h2, h3, h4, h5, h6) a:hover {
         text-decoration: none;
@@ -19,7 +19,14 @@ article {
     h6 {
         color: color(title);
         margin-top: unset;
-        // margin-bottom: unset;
+    }
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin-top: property(spacer-lg);
     }
 
     p {
@@ -76,17 +83,26 @@ article {
             left: unset;
             right: unset;
         }
+
+        // picture {
+        //     width: 100vw;
+        //     transform: translateX(calc(-1 * property(spacer-lg)));
+        // }
     }
 
     figcaption {
-        margin-top: property(spacer-sm);
+        margin-top: property(spacer-md);
         font-size: 0.875rem;
     }
 
     blockquote {
         color: color(primary);
-        margin-left: property(spacer-lg);
-        margin-right: property(spacer-lg);
+        border-left: property(spacer-xs) solid color(primary);
+        padding-left: property(spacer-lg);
+        margin: {
+            left: unset;
+            right: property(spacer-lg);
+        }
     
         p {
             font-size: 1.25rem;
@@ -146,6 +162,10 @@ article {
             border-bottom: 1px solid color(grey-200);
         }
     }
+
+    picture {
+        position: relative;
+    }
 }
 
 section.container {
@@ -176,7 +196,7 @@ section.container {
     }
 }
 
-.summary {
+.dek {
     font-size: 1.125rem;
 }
 
@@ -224,18 +244,65 @@ section.container {
     }
 }
 
-article {
-    
-    // Gradient stickied to the bottom of an article, for demo purposes
-    &:after {
-        width: 120%;
-        height: 10vh;
-        content: '';
-        position: sticky;
-        display: inline-flex;
-        transform: translateX(-10%);
-        bottom: 0;
-        $fill: color(background, true);
-        background: linear-gradient(0deg, rgba($fill, 1) 0%, rgba($fill, 0) 100%); 
+.related {
+    @include grid(property(spacer-md));
+    grid-template-columns: 1fr min(25vw, property(spacer-xl));
+    // padding: property(spacer-sm);
+    // border: 1px solid color(grey-000);
+    align-items: flex-start;
+
+    &__picture {
+        aspect-ratio: 1/1;
+        position: relative;
+
+        img,
+        source {
+            @include image-fill;
+        }
     }
+
+    &__title {
+        margin: unset;
+        font-size: 1.125rem;
+        @include grid(unset);
+    }
+}
+
+article {
+    background-color: color(background);
+    margin: {
+        // top: #{"calc(100vw * (9 / 16))"};
+        bottom: property(spacer-xl);
+    }
+    padding: {
+        top: property(container-padding);
+    }
+    border-top-left-radius: property(spacer-sm);
+    border-top-right-radius: property(spacer-sm);
+
+    // Gradient stickied to the bottom of an article, for demo purposes
+    // &:after {
+    //     width: 120%;
+    //     height: 10vh;
+    //     content: '';
+    //     position: sticky;
+    //     display: inline-flex;
+    //     transform: translateX(-10%);
+    //     bottom: 0;
+    //     $fill: color(background, true);
+    //     background: linear-gradient(0deg, rgba($fill, 1) 0%, rgba($fill, 0) 100%); 
+    // }
+}
+
+.meta {
+    margin-top: unset;
+}
+
+#nav {
+    width: 100%;
+    height: 3rem;
+    background-color: grey;
+    top: 0;
+    position: fixed;
+    z-index: 9;
 }

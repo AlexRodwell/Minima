@@ -18,21 +18,21 @@
     }
 }
 
-// @font-face {
-//     font-family: 'untitled_sansregular';
-//     src: url('fonts/untitled_sans_regular-webfont.woff2') format('woff2'), url('fonts/untitled_sans_regular-webfont.woff') format('woff');
-//     font-weight: normal;
-//     font-style: normal;
-//     font-named-instance: 'Regular';
-// }
+@font-face {
+    font-family: 'untitled_sansregular';
+    src: url('/assets/fonts/untitled_sans_regular-webfont.woff2') format('woff2'), url('fonts/untitled_sans_regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-named-instance: 'Regular';
+}
 
-// @font-face {
-//     font-family: 'untitled_sansbold';
-//     src: url('fonts/untitled_sans_bold-webfont.woff2') format('woff2'), url('fonts/untitled_sans_bold-webfont.woff') format('woff');
-//     font-weight: normal;
-//     font-style: bold;
-//     font-named-instance: 'Bold';
-// }
+@font-face {
+    font-family: 'untitled_sansbold';
+    src: url('/assets/fonts/untitled_sans_bold-webfont.woff2') format('woff2'), url('fonts/untitled_sans_bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: bold;
+    font-named-instance: 'Bold';
+}
 
 html {
     scroll-behavior: smooth;
@@ -41,7 +41,10 @@ html {
     font-size: clamp(16px, 0.75rem + 1vw, 20px); // Scales between 400-800px https://clamp.font-size.app/
     scrollbar-width: thin;
     scrollbar-color: color(primary) color(background);
-    scroll-padding-top: property(spacer-xl);
+    scroll-padding: {
+        top: property(spacer-xxl);
+        bottom: property(spacer-xxl);
+    }
     scrollbar-gutter: stable;
     font-family: font(body);
     color-scheme: dark light; // defer to OS preference - https://web.dev/color-scheme/

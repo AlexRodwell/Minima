@@ -44,6 +44,20 @@
   --minima-font-body: "untitled_sansregular", "Gotham", "Helvetica", "Arial", sans-serif;
 }
 
+@font-face {
+  font-family: "untitled_sansregular";
+  src: url("/assets/fonts/untitled_sans_regular-webfont.woff2") format("woff2"), url("fonts/untitled_sans_regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-named-instance: "Regular";
+}
+@font-face {
+  font-family: "untitled_sansbold";
+  src: url("/assets/fonts/untitled_sans_bold-webfont.woff2") format("woff2"), url("fonts/untitled_sans_bold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: bold;
+  font-named-instance: "Bold";
+}
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
@@ -51,7 +65,8 @@ html {
   font-size: clamp(16px, 0.75rem + 1vw, 20px);
   scrollbar-width: thin;
   scrollbar-color: var(--minima-color-primary, #F97200) var(--minima-color-background, #1A1A1A);
-  scroll-padding-top: var(--minima-property-spacer-xl, 4rem);
+  scroll-padding-top: var(--minima-property-spacer-xxl, 8rem);
+  scroll-padding-bottom: var(--minima-property-spacer-xxl, 8rem);
   scrollbar-gutter: stable;
   font-family: var(--minima-font-body, "untitled_sansregular", "Gotham", "Helvetica", "Arial", sans-serif);
   color-scheme: dark light;
@@ -176,7 +191,7 @@ h6 {
 }
 
 h1 {
-  font-size: 1.875rem;
+  font-size: 2.125rem;
 }
 
 h2 {
