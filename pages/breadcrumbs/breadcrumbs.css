@@ -44,14 +44,14 @@
 
 @font-face {
   font-family: "untitled_sansregular";
-  src: url("/assets/fonts/untitled_sans_regular-webfont.woff2") format("woff2"), url("fonts/untitled_sans_regular-webfont.woff") format("woff");
+  src: url("/fonts/untitled_sans_regular-webfont.woff2") format("woff2"), url("/fonts/untitled_sans_regular-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-named-instance: "Regular";
 }
 @font-face {
   font-family: "untitled_sansbold";
-  src: url("/assets/fonts/untitled_sans_bold-webfont.woff2") format("woff2"), url("fonts/untitled_sans_bold-webfont.woff") format("woff");
+  src: url("/fonts/untitled_sans_bold-webfont.woff2") format("woff2"), url("/fonts/untitled_sans_bold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: bold;
   font-named-instance: "Bold";
@@ -385,27 +385,6 @@ form {
   display: grid;
   grid-gap: var(--minima-property-spacer-md, 1rem);
   gap: var(--minima-property-spacer-md, 1rem);
-}
-
-@media only screen and (min-width: 768px) {
-  .test {
-    color: red;
-  }
-}
-@media only screen and (max-width: 767px) {
-  .test {
-    color: blue;
-  }
-}
-@media only screen and (min-width: 768px) and (max-width: 992px) {
-  .test {
-    color: orange;
-  }
-}
-@media only screen and (min-width: 768px) and (max-width: 1200px) {
-  .test {
-    color: green;
-  }
 }
 
 .breadcrumb__list {

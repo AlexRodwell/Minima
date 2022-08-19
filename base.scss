@@ -20,7 +20,7 @@
 
 @font-face {
     font-family: 'untitled_sansregular';
-    src: url('/assets/fonts/untitled_sans_regular-webfont.woff2') format('woff2'), url('fonts/untitled_sans_regular-webfont.woff') format('woff');
+    src: url('/fonts/untitled_sans_regular-webfont.woff2') format('woff2'), url('/fonts/untitled_sans_regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-named-instance: 'Regular';
@@ -28,7 +28,7 @@
 
 @font-face {
     font-family: 'untitled_sansbold';
-    src: url('/assets/fonts/untitled_sans_bold-webfont.woff2') format('woff2'), url('fonts/untitled_sans_bold-webfont.woff') format('woff');
+    src: url('/fonts/untitled_sans_bold-webfont.woff2') format('woff2'), url('/fonts/untitled_sans_bold-webfont.woff') format('woff');
     font-weight: normal;
     font-style: bold;
     font-named-instance: 'Bold';
@@ -284,23 +284,4 @@ input[type=number] {
 
 form {
     @include grid(property(spacer-md));
-}
-
-.test {
-
-    @include breakpoint-up(md) {
-        color: red;
-    }
-
-    @include breakpoint-down(md) {
-        color: blue;
-    }
-
-    @include breakpoint-only(md) {
-        color: orange;
-    }
-
-    @include breakpoint-between(md, xl) {
-        color: green;
-    }
 }
