@@ -3,13 +3,14 @@
 
 $theme: 'minima';
 
+// Based on Boostrap 5.0 breakpoints - https://getbootstrap.com/docs/5.0/layout/breakpoints/
 $breakpoints: (
-    xs: 499px,
-    sm: 500px,
-    md: 700px,
-    lg: 900px,
+    xs: 576px,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
     xl: 1200px,
-    xxl: 1280px
+    xxl: 1400px
 );
 
 // Based on Google's Material UI, while this is far from a be-all, end-all solution, it's a start. Colour systems vary heavily per project, as some might mix and match light/dark, meaning the colours must be interchangable.
@@ -17,16 +18,16 @@ $breakpoints: (
 $colors: (
 
     // Shades
-	grey-000: #1E2227,
-	grey-100: #272D33,
-	grey-200: #363A42,
-	grey-300: #7F8091,
-	grey-400: #AAB2C7,
+    grey-000: #1E2227,
+    grey-100: #272D33,
+    grey-200: #363A42,
+    grey-300: #7F8091,
+    grey-400: #AAB2C7,
     grey-500: #E9ECF4,
-	white: #FFFFFF,
-	black: #000000,
-	primary: #F97200,
-	secondary: #99A29E,
+    white: #FFFFFF,
+    black: #000000,
+    primary: #F97200,
+    secondary: #99A29E,
 
     // Specific
     title: #FFFFFF,

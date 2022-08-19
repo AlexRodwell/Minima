@@ -1,6 +1,4 @@
 @charset "UTF-8";
-/* Pending removal: never used, and not immediately obvious/logical what direction this goes (up for reference, so lg would cover the width between breakpoint lg and xl) */
-/* Pending: rarely used, generally you should never have specific CSS for a given range unless there is an extreme edge case, instead you should be using a breakpoint for each step a change is required */
 :root {
   --minima-property-navigation: 4.5rem;
   --minima-property-container: 1200px;
@@ -165,7 +163,7 @@ svg {
     padding-right: var(--minima-property-spacer-lg, 2rem);
   }
 }
-@media only screen and (max-width: 699px) {
+@media only screen and (max-width: 767px) {
   @supports (padding-inline: var(--minima-property-container-padding, 7.5vw)) {
     .container {
       padding-inline: var(--minima-property-container-padding, 7.5vw);
@@ -390,6 +388,27 @@ form {
   gap: var(--minima-property-spacer-md, 1rem);
 }
 
+@media only screen and (min-width: 768px) {
+  .test {
+    color: red;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .test {
+    color: blue;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  .test {
+    color: orange;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+  .test {
+    color: green;
+  }
+}
+
 article {
   position: relative;
 }
@@ -531,7 +550,7 @@ section.container {
   padding-top: var(--minima-property-spacer-lg, 2rem);
   padding-bottom: var(--minima-property-spacer-lg, 2rem);
 }
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 992px) {
   section.container {
     -ms-grid-columns: 6fr var(--minima-property-spacer-lg, 2rem) 2fr;
     grid-template-columns: 6fr 2fr;
@@ -543,7 +562,7 @@ section.container > section {
 section.container > aside {
   background: rgba(255, 255, 255, 0.05);
 }
-@media only screen and (max-width: 899px) {
+@media only screen and (max-width: 991px) {
   section.container > aside {
     display: none;
     visibility: hidden;
@@ -591,7 +610,7 @@ section.container > aside {
   overflow-x: scroll;
   position: relative;
 }
-@media only screen and (max-width: 499px) {
+@media only screen and (max-width: 575px) {
   .table {
     border-right: 1px solid var(--minima-color-grey-200, #363A42);
     max-width: 85vw;
@@ -600,53 +619,6 @@ section.container > aside {
     min-width: 150vw;
     border-right: unset;
   }
-}
-
-.related {
-  display: -ms-grid;
-  display: grid;
-  grid-gap: var(--minima-property-spacer-md, 1rem);
-  gap: var(--minima-property-spacer-md, 1rem);
-  -ms-grid-columns: 1fr var(--minima-property-spacer-md, 1rem) min(25vw, var(--minima-property-spacer-xl, 4rem));
-  grid-template-columns: 1fr min(25vw, var(--minima-property-spacer-xl, 4rem));
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-}
-.related__picture {
-  aspect-ratio: 1/1;
-  position: relative;
-}
-.related__picture img,
-.related__picture source {
-  position: absolute;
-  -o-object-fit: cover;
-     object-fit: cover;
-  width: 100%;
-  height: 100%;
-}
-@supports not (inset: 0) {
-  .related__picture img,
-.related__picture source {
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  }
-}
-@supports (inset: 0) {
-  .related__picture img,
-.related__picture source {
-    inset: 0;
-  }
-}
-.related__title {
-  margin: unset;
-  font-size: 1.125rem;
-  display: -ms-grid;
-  display: grid;
-  grid-gap: unset;
-  gap: unset;
 }
 
 article {

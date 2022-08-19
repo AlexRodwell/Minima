@@ -1,4 +1,4 @@
-@import '../../assets/css/base';
+@import '../../base';
 
 article {
     position: relative;
@@ -241,30 +241,6 @@ section.container {
             min-width: 150vw;
             border-right: unset;
         }
-    }
-}
-
-.related {
-    @include grid(property(spacer-md));
-    grid-template-columns: 1fr min(25vw, property(spacer-xl));
-    // padding: property(spacer-sm);
-    // border: 1px solid color(grey-000);
-    align-items: flex-start;
-
-    &__picture {
-        aspect-ratio: 1/1;
-        position: relative;
-
-        img,
-        source {
-            @include image-fill;
-        }
-    }
-
-    &__title {
-        margin: unset;
-        font-size: 1.125rem;
-        @include grid(unset);
     }
 }
 

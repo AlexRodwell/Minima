@@ -1,4 +1,4 @@
-@import '../../assets/css/base';
+@import '../../base';
 
 .container {
     @include flex(column, center, flex-start, property(spacer-md));

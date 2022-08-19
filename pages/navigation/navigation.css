@@ -1,5 +1,3 @@
-/* Pending removal: never used, and not immediately obvious/logical what direction this goes (up for reference, so lg would cover the width between breakpoint lg and xl) */
-/* Pending: rarely used, generally you should never have specific CSS for a given range unless there is an extreme edge case, instead you should be using a breakpoint for each step a change is required */
 :root {
   --minima-property-navigation: 4.5rem;
   --minima-property-container: 1200px;
@@ -164,7 +162,7 @@ svg {
     padding-right: var(--minima-property-spacer-lg, 2rem);
   }
 }
-@media only screen and (max-width: 699px) {
+@media only screen and (max-width: 767px) {
   @supports (padding-inline: var(--minima-property-container-padding, 7.5vw)) {
     .container, .main-navigation__container {
       padding-inline: var(--minima-property-container-padding, 7.5vw);
@@ -389,6 +387,27 @@ form {
   gap: var(--minima-property-spacer-md, 1rem);
 }
 
+@media only screen and (min-width: 768px) {
+  .test {
+    color: red;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .test {
+    color: blue;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  .test {
+    color: orange;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+  .test {
+    color: green;
+  }
+}
+
 body.lock {
   overflow: hidden;
 }
@@ -462,7 +481,7 @@ body.lock {
 .main-navigation__toggle__icon {
   fill: var(--minima-color-white, #FFFFFF);
 }
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 992px) {
   .main-navigation__toggle {
     display: none;
   }
@@ -482,7 +501,7 @@ body.lock {
   padding: unset;
   color: var(--minima-color-grey-000, #1E2227);
 }
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 992px) {
   .main-navigation__links {
     color: var(--minima-color-white, #FFFFFF);
     -webkit-box-orient: horizontal;
@@ -491,7 +510,7 @@ body.lock {
             flex-direction: row;
   }
 }
-@media only screen and (max-width: 899px) {
+@media only screen and (max-width: 991px) {
   .main-navigation__links {
     gap: var(--minima-property-spacer-md, 1rem);
     padding: var(--minima-property-spacer-md, 1rem);
@@ -539,7 +558,7 @@ body.lock {
           align-items: flex-start;
   border-left: none;
 }
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 992px) {
   .main-navigation__links__item {
     -webkit-box-align: center;
         -ms-flex-align: center;
@@ -556,7 +575,7 @@ body.lock {
             transform: translateX(-50%);
   }
 }
-@media only screen and (max-width: 899px) {
+@media only screen and (max-width: 991px) {
   .main-navigation__links__item {
     padding-bottom: var(--minima-property-spacer-md, 1rem);
   }
@@ -571,7 +590,7 @@ body.lock {
   padding: unset;
   list-style: none;
 }
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 992px) {
   .main-navigation__links__dropdown {
     position: absolute;
     top: calc(var(--minima-property-spacer-xl, 4rem) + var(--minima-property-spacer-lg, 2rem));
@@ -621,7 +640,7 @@ body.lock {
     background-color: var(--minima-color-grey-500, #E9ECF4);
   }
 }
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 992px) {
   .main-navigation__links__dropdown--mega-menu {
     width: 100%;
     max-width: var(--minima-property-container, 1200px);
@@ -702,7 +721,7 @@ body.lock {
   text-decoration: none;
   border-radius: var(--minima-property-radius-inner, 0.25rem);
 }
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 992px) {
   .main-navigation__links__link, .main-navigation__links__link-toggle {
     padding: var(--minima-property-spacer-md, 1rem);
   }
@@ -710,7 +729,7 @@ body.lock {
 .main-navigation__links__link {
   color: inherit;
 }
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 992px) {
   .main-navigation__links__link--footer {
     display: inherit;
     position: relative;
@@ -743,7 +762,7 @@ body.lock {
   vertical-align: middle;
   fill: var(--minima-color-grey-100, #272D33);
 }
-@media only screen and (max-width: 899px) {
+@media only screen and (max-width: 991px) {
   .main-navigation__links__link__icon {
     display: none;
   }
@@ -760,12 +779,12 @@ body.lock {
           align-items: center;
   cursor: pointer;
 }
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 992px) {
   .main-navigation__links__link-toggle {
     color: var(--minima-color-white, #FFFFFF);
   }
 }
-@media only screen and (max-width: 899px) {
+@media only screen and (max-width: 991px) {
   .main-navigation__links__link-toggle {
     color: var(--minima-color-grey-300, #7F8091);
   }

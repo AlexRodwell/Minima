@@ -1,5 +1,3 @@
-/* Pending removal: never used, and not immediately obvious/logical what direction this goes (up for reference, so lg would cover the width between breakpoint lg and xl) */
-/* Pending: rarely used, generally you should never have specific CSS for a given range unless there is an extreme edge case, instead you should be using a breakpoint for each step a change is required */
 :root {
   --minima-property-navigation: 4.5rem;
   --minima-property-container: 1200px;
@@ -164,7 +162,7 @@ svg {
     padding-right: var(--minima-property-spacer-lg, 2rem);
   }
 }
-@media only screen and (max-width: 699px) {
+@media only screen and (max-width: 767px) {
   @supports (padding-inline: var(--minima-property-container-padding, 7.5vw)) {
     .container {
       padding-inline: var(--minima-property-container-padding, 7.5vw);
@@ -387,6 +385,27 @@ form {
   display: grid;
   grid-gap: var(--minima-property-spacer-md, 1rem);
   gap: var(--minima-property-spacer-md, 1rem);
+}
+
+@media only screen and (min-width: 768px) {
+  .test {
+    color: red;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .test {
+    color: blue;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  .test {
+    color: orange;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+  .test {
+    color: green;
+  }
 }
 
 .container {
