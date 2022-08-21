@@ -39,13 +39,15 @@ html {
     overflow-x: hidden;
     font-size: 16px; // Fallback for clamp()
     font-size: clamp(16px, 0.75rem + 1vw, 20px); // Scales between 400-800px https://clamp.font-size.app/
-    scrollbar-width: thin;
-    scrollbar-color: color(primary) color(background);
+    scrollbar: {
+        width: thin;
+        color: color(primary) color(background);
+        gutter: stable;
+    }
     scroll-padding: {
         top: property(spacer-xxl);
         bottom: property(spacer-xxl);
     }
-    scrollbar-gutter: stable;
     font-family: font(body);
     color-scheme: dark light; // defer to OS preference - https://web.dev/color-scheme/
 }
@@ -105,10 +107,6 @@ svg {
     fill: currentColor;
 }
 
-audio {
-    
-}
-
 .container {
     @include container;
 
@@ -140,6 +138,9 @@ h6 {
 a {
     color: currentColor;
 }
+
+//////////////////////////////////////////////////
+// Input
 
 input,
 select,

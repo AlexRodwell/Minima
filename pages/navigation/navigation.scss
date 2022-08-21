@@ -301,6 +301,12 @@ body.lock {
                 }
             }
 
+            @include breakpoint-down(lg) {
+                img {
+                    @include hidden;
+                }
+            }
+
             &__icon {
                 display: inline-block;
                 vertical-align: middle;
